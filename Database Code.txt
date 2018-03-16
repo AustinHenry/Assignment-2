@@ -1,0 +1,79 @@
+CREATE DATABASE BGS;
+GO
+
+USE BGS;
+GO
+
+/* Create the Product Table */
+CREATE TABLE Products(
+  ProductID bigint NOT NULL PRIMARY KEY,
+  ProductName varchar(50) NOT NULL,
+  Manufacturer varchar(50) NOT NULL,
+  Price int NOT NULL);
+
+/* Create the Customer Table */
+CREATE TABLE Customers(
+  CustomerID bigint NOT NULL PRIMARY KEY,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(50) NOT NULL,
+  Phone int NOT NULL,
+  Address varchar(50) NOT NULL,
+  Zip int NOT NULL);
+
+/* Create the Orders Table */
+CREATE TABLE Orders(
+  CustomerID bigint NOT NULL PRIMARY KEY,
+  CustomerID bigint NOT NULL,
+  EmployeeID bigint NOT NULL,
+  ProductID bigint NOT NULL,
+  Quantity int NOT NULL,
+  Donation int int NOT NULL);
+
+/* Create the Employees Table */
+CREATE TABLE Employees(
+  EmployeeID bigint NOT NULL PRIMARY KEY,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(50) NOT NULL,
+  JobTitle varchar(50) NOT NULL);
+
+/* Create the Stores Table */
+CREATE TABLE Stores(
+  StoreID bigint NOT NULL PRIMARY KEY,
+  Address varchar(50) NOT NULL,
+  Zip int NOT NULL,
+  ProductID bigint NOT NULL);
+
+/* Create the Charities Table */
+CREATE TABLE Charities(
+  CharityID bigint NOT NULL PRIMARY KEY,
+  Name varchar(50) NOT NULL,
+  EmployeeID bigint NOT NULL,
+  Address varchar(50) NOT NULL,
+  Quantity int NOT NULL,
+  StoreID bigint NOT NULL);
+
+/* Add rows to Products*/
+INSERT INTO Student (ProductID, ProductName, Manufacturer, Price) VALUES 
+(1, 'Free Runs', 'Nike', 85),
+(2, 'Pegasus', 'Nike', 90),
+(3, 'Wave Riders', 'Mizuno', 100),
+(4, 'Launch 5', 'Brooks', 65),
+(5, 'Ghost 10', 'Brooks', 70),
+(6, 'Adrenaline', 'Brooks', 70),
+(7, 'Gemini', 'Under Armour', 50),
+(8, 'Charged Bandit 3', 'Under Armour', 65),
+(9, 'Zoom Fly', 'Nike', 80),
+(10, 'Zoom Elite', 'Nike', 120);
+
+/* Add rows to Customers*/
+INSERT INTO Customers (CustomerID, FirstName, LastName, Phone, Address, Zip) VALUES 
+(1, 'Galen', 'Rupp', 5554447777, '123 This is Tedious Lane', 08234),
+(2, 'Jamie', 'Smith', 9897213476, '234 Mykonos Road', 08235),
+(3, 'Mike', 'Wazowski', 8883332121, '123 Im Running Out of Names Ave', 09457),
+(4, 'John', 'Locke', 5557778901, '882 LOST Circle', 48151),
+(5, 'Jack', 'Shephard', 7094768321, '457 The Numbers Drive', 62342),
+(6, 'James', 'Ford', 0000012238, '909 Alabama Lane', 55555),
+(7, 'Ben', 'Linus', 5075632395, '123 Still Tedious Lane', 77777),
+(8, 'Hugo', 'Reyes', 9991112222, '3 More to Go Drive', 33221),
+(9, 'Nick', 'Foles', 8096543221, '0 So Close Yet So Far', 76890),
+(10, 'Carson', 'Wentz', 1206507234, '1 At a Time Ave', 09876);

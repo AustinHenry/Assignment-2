@@ -1,0 +1,2 @@
+C:\Users\ahenry1\Documents\GitHub\Assignment-2\obj\x86\Debug\Assignment 2 BGS.vbprojResolveAssemblyReference.cache
+C:\Users\ahenry1\Documents\GitHub\Assignment-2\obj\x86\Debug\Assignment 2 BGS.vbproj.CoreCompileInputs.cache
