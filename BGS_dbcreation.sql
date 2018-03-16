@@ -1,0 +1,136 @@
+﻿/*Team Name: BGS - Chaela Hood, Austin Henry, Lauren Mariano*/
+
+CREATE DATABASE BGS2017;
+GO
+
+USE BGS2017;
+GO
+
+/* Create the Product Table */
+CREATE TABLE Products(
+  ProductID bigint NOT NULL PRIMARY KEY,
+  ProductName varchar(50) NOT NULL,
+  Manufacturer varchar(50) NOT NULL,
+  Price int NOT NULL);
+
+/* Create the Customer Table */
+CREATE TABLE Customers(
+  CustomerID bigint NOT NULL PRIMARY KEY,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(50) NOT NULL,
+  Phone int NOT NULL,
+  Address varchar(50) NOT NULL,
+  Zip int NOT NULL);
+
+  ALTER TABLE Customers ALTER COLUMN Phone bigint 
+  ALTER TABLE Customers ALTER COLUMN Zip bigint
+
+/* Create the Orders Table */
+CREATE TABLE Orders(
+  OrderID bigint NOT NULL PRIMARY KEY,
+  CustomerID bigint NOT NULL,
+  EmployeeID bigint NOT NULL,
+  ProductID bigint NOT NULL,
+  Quantity int NOT NULL,
+  Donation int NOT NULL);
+
+/* Create the Employees Table */
+CREATE TABLE Employees(
+  EmployeeID bigint NOT NULL PRIMARY KEY,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(50) NOT NULL,
+  JobTitle varchar(50) NOT NULL);
+
+/* Create the Stores Table */
+CREATE TABLE Stores(
+  StoreID bigint NOT NULL PRIMARY KEY,
+  Address varchar(50) NOT NULL,
+  Zip int NOT NULL,
+  ProductID bigint NOT NULL);
+
+/* Create the Charities Table */
+CREATE TABLE Charities(
+  CharityID bigint NOT NULL PRIMARY KEY,
+  Name varchar(50) NOT NULL,
+  EmployeeID bigint NOT NULL,
+  Address varchar(50) NOT NULL,
+  Quantity int NOT NULL,
+  StoreID bigint NOT NULL);
+
+/* Add rows to Products*/
+INSERT INTO Products (ProductID, ProductName, Manufacturer, Price) VALUES 
+(1, 'Free Runs', 'Nike', 85),
+(2, 'Pegasus', 'Nike', 90),
+(3, 'Wave Riders', 'Mizuno', 100),
+(4, 'Launch 5', 'Brooks', 65),
+(5, 'Ghost 10', 'Brooks', 70),
+(6, 'Adrenaline', 'Brooks', 70),
+(7, 'Gemini', 'Under Armour', 50),
+(8, 'Charged Bandit 3', 'Under Armour', 65),
+(9, 'Zoom Fly', 'Nike', 80),
+(10, 'Zoom Elite', 'Nike', 120);
+
+/* Add rows to Customers*/
+INSERT INTO Customers (CustomerID, FirstName, LastName, Phone, Address, Zip) VALUES 
+(1, 'Galen', 'Rupp', 5554447777, '123 This is Tedious Lane', 08234),
+(2, 'Jamie', 'Smith', 9897213476, '234 Mykonos Road', 08235),
+(3, 'Mike', 'Wazowski', 8883332121, '123 Im Running Out of Names Ave', 09457),
+(4, 'John', 'Locke', 5557778901, '882 LOST Circle', 48151),
+(5, 'Jack', 'Shephard', 7094768321, '457 The Numbers Drive', 62342),
+(6, 'James', 'Ford', 0000012238, '909 Alabama Lane', 55555),
+(7, 'Ben', 'Linus', 5075632395, '123 Still Tedious Lane', 77777),
+(8, 'Hugo', 'Reyes', 9991112222, '3 More to Go Drive', 33221),
+(9, 'Nick', 'Foles', 8096543221, '0 So Close Yet So Far', 76890),
+(10, 'Carson', 'Wentz', 1206507234, '1 At a Time Ave', 09876);
+
+/* Add rows to Orders*/
+INSERT INTO Orders (OrderID, CustomerID, EmployeeID, ProductID, Quantity, Donation) VALUES 
+(1, 1, 1, 1, 8, 0),
+(2, 2, 2, 2, 3, 0),
+(3, 3, 3, 3, 22, 0),
+(4, 4, 4, 2, 500, 48),
+(5, 5, 5, 5, 321, 623),
+(6, 6, 6, 2, 12, 5),
+(7, 7, 7, 3, 90, 70),
+(8, 8, 8, 3, 54, 33),
+(9, 9, 9, 9, 34, 7),
+(10, 10, 10, 10, 65, 0);
+
+/* Add rows to Employees*/
+INSERT INTO Employees (EmployeeID, FirstName, LastName, JobTitle) VALUES 
+(1, 'Chase', 'Utley', 'SalesPerson'),
+(2, 'Jane', 'Doe', 'SalesPerson'),
+(3, 'John', 'Arnst', 'Manager'),
+(4, 'Donovan', 'McNabb', 'Manager'),
+(5, 'Allen', 'Iverson', 'Influencer'),
+(6, 'Anthony', 'Anderson', 'SalesPerson'),
+(7, 'Anthony', 'Kiedis', 'Manager'),
+(8, 'Arnie', 'Armstrong', 'HR'),
+(9, 'Sarah', 'ONeil', 'ProductManager'),
+(10, 'Anfrenee', 'Smith', 'SalesPerson');
+
+/* Add rows to Stores*/
+INSERT INTO Stores (StoreID, Address, Zip, ProductID) VALUES 
+(1, '549 Hello Lane', 42445, 1),
+(2, '767 ByeBye Drive', 89076, 2),
+(3, '89 What Drive', 11122, 3),
+(4, '54 Doodoo Drive', 89765, 4),
+(5, '8 BI Court', 02457, 5),
+(6, '90 DA Lane', 02456, 6),
+(7, '80 Harwood Lane', 02455, 7),
+(8, '75 Indigo Drive', 02454, 8),
+(9, '44 Maryland Road', 02334, 9),
+(10,'43 Mass Drice', 02222, 10);
+
+/* Add rows to Charities*/
+INSERT INTO Charities (CharityID, Name, EmployeeID, Address, Quantity, StoreID) VALUES 
+(1, 'Charitable People', 1, 'Address 1', 9, 1),
+(2, 'Best Givers', 2, 'Address 2', 4, 2),
+(3, 'Shoe Lovers', 3, 'Address 3', 23, 3),
+(4, 'Shoe Givers', 4, 'Address 4', 501, 4),
+(5, 'Giver of Shoes', 5, 'Address 5', 322, 5),
+(6, 'Runners', 6, 'Address 6', 60, 6),
+(7, 'Joggers', 7, 'Address 7', 93, 7),
+(8, 'Walkers', 8, 'Address 8', 45, 8),
+(9, 'Generous Athletes', 9, 'Address 9', 43, 9),
+(10, 'Money Money Money', 10, 'Address 10!!!', 56, 10);
